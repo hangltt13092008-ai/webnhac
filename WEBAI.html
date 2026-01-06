@@ -1,0 +1,490 @@
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Web AI</title>
+<link rel="stylesheet" href="./WEB COLORS/COLOR-AI.css">
+<link rel="stylesheet" href="./CSS/WEB AI+VIET.css">
+</head>
+<body>
+<header>
+  <img src="./PICTURE/nốt nhạc-1.png" width="70"/>
+  <h1>NHẠC AI</h1>
+  <div class="menu-toggle" id="toggleBtn" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+  <div class="sidebar" id="sideMenu">
+      <a href="ABOUT US.html"><img src="./PICTURE/nốt nhạc-1.png" width="28px"> giới thiệu</a>
+      <a href="HOME.html"><img src="./PICTURE/ngôi nhà.png" width="35px"> Trang chủ</a>
+      <a href="WEBVIET.html"><img src="./PICTURE/nốt nhạc-2.png" width="50px"> nhạc Việt</a>
+      <a href="PERSONAL.html"><img src="./PICTURE/profile.png" width="28px"> cá nhân</a>
+      
+  </div>
+</header>
+<table align="center" cellpadding="20">
+<tr>
+  <td style="width:58%" ><h2>NHẠC ĐANG PHÁT</h2></td>
+  <td style="width:42%"><h2>DANH SÁCH</h2></td>
+</tr>
+<tr>
+  <td style="padding:25px;" valign="top">
+    <section class="player" aria-label="Now playing">
+      <div class="player-top">
+        <div class="cover">
+	   <img src="">
+        </div>
+        <div class="nowplaying">
+          <h3>tên bài hát</h3>
+          <h4>- tên tác giả -</h4>
+          <input type="range" id="progress" value="0" min="0" max="100">
+          <script>
+const progress = document.getElementById("progress");
+
+// Hàm cập nhật màu track khi giá trị thay đổi
+function updateProgressBar() {
+  const val = progress.value;
+  progress.style.background = `linear-gradient(to right, #D1BBF9 0%, #D1BBF9 ${val}%, #fff ${val}%, #fff 100%)`; /* màu cho hình trái tim chuyển từ không thích sang thích*/
+}
+// Cập nhật khi kéo thanh
+progress.addEventListener('input', updateProgressBar);
+// Khởi tạo màu khi load
+updateProgressBar();
+</script>
+          <div class="controls">
+            <button class="btn">⏮</button>
+            <button class="btn">▶</button>
+            <button class="btn">⏭</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </td>
+  <td valign="top">
+    <div class="playlist-container">
+      <!-- SONG 1 -->
+      <div class="song active" data-id="ss1">
+        <div class="index">1</div>
+        <div class="info">
+          <span class="title">Nắng mai thời niên thiếu</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart1">
+          <label for="heart1" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+      <!-- SONG 2 -->
+      <div class="song active" data-id="ss2">
+        <div class="index">2</div>
+        <div class="info">
+          <span class="title">Bước tiến kiên cường</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart2">
+          <label for="heart2" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+      <!-- SONG 3 -->
+      <div class="song active" data-id="ss3">
+        <div class="index">3</div>
+        <div class="info">
+          <span class="title">Đời là muôn màu</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart3">
+          <label for="heart3" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	<!-- SONG 4 -->
+      <div class="song active" data-id="ss4">
+        <div class="index">4</div>
+        <div class="info">
+          <span class="title">bài ca sin cos</span>
+<span class="artist">AI</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart4">
+          <label for="heart4" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	<!-- SONG 5 -->
+      <div class="song active" data-id="ss5">
+        <div class="index">5</div>
+        <div class="info">
+          <span class="title">bài ca trái đất</span>
+<span class="artist">AI</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart5">
+          <label for="heart5" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	<!-- SONG 6 -->
+      <div class="song active" data-id="ss6">
+        <div class="index">6</div>
+        <div class="info">
+          <span class="title">khuyết danh</span>
+<span class="artist">AI</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart6">
+          <label for="heart6" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+    </div>
+  </td>
+</tr>
+</table>
+
+<script>
+(() => {
+  // giữ nguyên API toggleMenu() vì HTML của cậu dùng onclick="toggleMenu()"
+  function toggleMenu(){
+    const side = document.getElementById("sideMenu");
+    const btn  = document.getElementById("toggleBtn");
+    if(!side || !btn) return;
+    side.classList.toggle("open");
+    btn.classList.toggle("move");
+    btn.classList.toggle("active");
+  }
+  // expose ra window để onclick trong HTML vẫn nhận
+  window.toggleMenu = toggleMenu;
+})();
+</script>
+<!-- =================== AUDIO PLAYER SCRIPT =================== -->
+<script>
+(() => {
+
+  // ===== LIKED SONG STORAGE =====
+  function getLikedSongs(){
+    return JSON.parse(localStorage.getItem('likedSongs') || '[]');
+  }
+
+  function setLikedSongs(arr){
+    localStorage.setItem('likedSongs', JSON.stringify(arr));
+  }
+
+  function isSongLiked(songId){
+    return getLikedSongs().includes(songId);
+  }
+
+  function toggleLike(songId){
+    let liked = getLikedSongs();
+    if(liked.includes(songId)){
+      liked = liked.filter(id => id !== songId);
+    } else {
+      liked.push(songId);
+    }
+    setLikedSongs(liked);
+    syncHeartUI();
+  }
+
+  // ===== GLOBAL PLAYER STATE =====
+  window.playerState = window.playerState || {
+    currentSongId: null,
+    isPlaying: false
+  };
+
+  // ====== Playlist data (kept from you) ======
+  const songsApp = [
+    { title: "Nắng mai thời niên thiếu", 
+      artist: "AI", 
+      id: "ss1", 
+      cover: "./PICTURE/đĩa nhạc dễ thương-2.png", 
+      src: "./songs/song_01.mp3" 
+},
+
+    { title: "Bước tiến kiên cường", 
+      artist: "AI", 
+      id: "ss2", 
+      cover: "https://i.postimg.cc/cgq9WVbN/20251130-1637-Dia-Hat-De-Thuong-simple-compose-01kba1w63tee08x56y7gf2g44w-removebg-preview.png", 
+      src: "./songs/song_02.mp3" 
+},
+
+    { title: "Đời là muôn màu", 
+      artist: "AI", 
+      id: "ss3", 
+      cover: "./PICTURE/đĩa nhạc dễ thương-2.png", 
+      src: "./songs/song_03.mp3" 
+},
+
+    { title: "bài ca sin cos", 
+      artist: "AI", 
+      id: "ss4", 
+      cover: "./PICTURE/đĩa nhạc dễ thương-2.png", 
+      src: "./songs/bài ca sin cos.mp3" },
+
+    { title: "bài ca trái đất", 
+      artist: "AI", 
+      id: "ss5", 
+      cover: "./PICTURE/đĩa nhạc dễ thương-2.png", 
+      src: "./songs/bài ca trái đất.mp3" 
+},
+
+    { title: "song_04", 
+      artist: "AI", 
+      id: "ss6", 
+      cover: "./PICTURE/đĩa nhạc dễ thương-2.png", 
+      src: "./songs/song_04.mp3" 
+}
+  ];
+
+  // ====== State riêng ======
+  let currentSongId = null;
+  let currentIndexApp = 0;
+  let isPlayingApp = false;
+
+  // ====== Single audio element (created on DOM ready) ======
+  let audioApp = null;
+
+  // ====== Helpers ======
+  const q = sel => document.querySelector(sel);
+  const qa = sel => Array.from(document.querySelectorAll(sel));
+  function findSongIndexById(id){ return songsApp.findIndex(s => s.id === id); }
+
+  // ====== syncHeartUI: update checkboxes in both card + playlist ======
+  function syncHeartUI(){
+    const liked = getLikedSongs();
+
+    qa('.music-card').forEach(card => {
+      const id = card.dataset.id;
+      const input = card.querySelector('.heart-toggle');
+      if(input) input.checked = liked.includes(id);
+    });
+
+    qa('.playlist-container .song').forEach(song => {
+      const id = song.dataset.id;
+      const input = song.querySelector('.heart-toggle');
+      if(input) input.checked = liked.includes(id);
+    });
+  }
+
+  // ====== syncActiveBySongId: highlight card + playlist by id ======
+  function syncActiveBySongId(songId){
+    const id = songId || (window.playerState && window.playerState.currentSongId) || null;
+    qa('.music-card').forEach(card => {
+      card.classList.toggle('active', card.dataset.id === id);
+    });
+    qa('.playlist-container .song').forEach(song => {
+      const match = song.dataset.id === id;
+      song.classList.toggle('active', match);
+      const wave = song.querySelector('.wave');
+      if(wave) wave.style.display = match ? 'flex' : 'none';
+    });
+  }
+
+  // ====== Main init ======
+  document.addEventListener('DOMContentLoaded', () => {
+    // create audio
+    audioApp = document.createElement('audio');
+    audioApp.preload = 'metadata';
+    audioApp.src = songsApp[currentIndexApp] ? songsApp[currentIndexApp].src : '';
+    document.body.appendChild(audioApp);
+
+    // refs
+    const coverImgApp  = q('.player .cover img');
+    const titleElApp   = q('.player h3');
+    const artistElApp  = q('.player h4');
+    let playlistNodes = qa('.playlist-container .song');
+    const progressApp  = q('#progress');
+    const prevBtnApp   = q('.controls .btn:nth-child(1)');
+    const playBtnApp   = q('.controls .btn:nth-child(2)');
+    const nextBtnApp   = q('.controls .btn:nth-child(3)');
+
+    const safeText = (el, txt) => { if(el) el.textContent = txt; };
+    const safeImg  = (el, src) => { if(el) el && (el.src = src || ''); };
+
+    // ensure dataset.id exists on playlist rows (fallback)
+    playlistNodes.forEach((node, idx) => {
+      if(!node.dataset.id && songsApp[idx]) node.dataset.id = songsApp[idx].id;
+    });
+    playlistNodes = qa('.playlist-container .song'); // refresh
+
+    // load function
+    function loadSongApp(index){
+      currentIndexApp = Math.max(0, Math.min(index, songsApp.length - 1));
+      const s = songsApp[currentIndexApp] || { title:'--', artist:'--', cover:'', src:'' };
+      currentSongId = s.id;
+      if(window.playerState) window.playerState.currentSongId = currentSongId;
+
+      safeImg(coverImgApp, s.cover);
+      if(coverImgApp){
+        coverImgApp.style.width = "100%";
+        coverImgApp.style.height = "100%";
+        coverImgApp.style.objectFit = "cover";
+      }
+      safeText(titleElApp, s.title);
+      safeText(artistElApp, '- ' + s.artist + ' -');
+
+      if(audioApp.src !== s.src){
+        audioApp.src = s.src || '';
+        try{ audioApp.load(); }catch(e){}
+      }
+
+      // playlist highlight
+      playlistNodes.forEach((node,i) => {
+        const waveEl = node.querySelector('.wave');
+        const isActive = (i === currentIndexApp);
+        node.classList.toggle('active', isActive);
+        if(waveEl) waveEl.style.display = isActive ? 'flex' : 'none';
+      });
+
+      syncActiveBySongId(currentSongId);
+      syncHeartUI();
+    }
+
+    // progress bar sync
+    audioApp.addEventListener('timeupdate', () => {
+      if (!isNaN(audioApp.duration) && audioApp.duration > 0 && progressApp) {
+        const pct = (audioApp.currentTime / audioApp.duration) * 100;
+        progressApp.value = pct;
+        progressApp.style.background = `linear-gradient(to right,#D1BBF9 0%,#D1BBF9 ${pct}%,#fff ${pct}%,#fff 100%)`;
+      }
+    });
+    if (progressApp) {
+      progressApp.addEventListener('input', () => {
+        if (!isNaN(audioApp.duration) && audioApp.duration > 0) {
+          audioApp.currentTime = (progressApp.value / 100) * audioApp.duration;
+        }
+      });
+    }
+
+    // play/pause
+    if (playBtnApp) {
+      playBtnApp.addEventListener('click', () => {
+        if (isPlayingApp) audioApp.pause();
+        else audioApp.play().catch(err => console.warn('Play blocked:', err));
+      });
+    }
+    audioApp.addEventListener('play', () => {
+      isPlayingApp = true;
+      if(window.playerState) window.playerState.isPlaying = true;
+      if (playBtnApp) playBtnApp.textContent = '⏸';
+    });
+    audioApp.addEventListener('pause', () => {
+      isPlayingApp = false;
+      if(window.playerState) window.playerState.isPlaying = false;
+      if (playBtnApp) playBtnApp.textContent = '▶';
+    });
+
+    function playCurrentSong(){
+      if (progressApp) {
+        progressApp.value = 0;
+        progressApp.style.background = `linear-gradient(to right,#D1BBF9 0%,#D1BBF9 0%,#fff 0%,#fff 100%)`;
+      }
+      audioApp.currentTime = 0;
+      audioApp.play().catch(e => console.warn('play error', e));
+    }
+
+    // next/prev
+    if (nextBtnApp) nextBtnApp.addEventListener('click', () => {
+      currentIndexApp = (currentIndexApp + 1) % songsApp.length;
+      loadSongApp(currentIndexApp);
+      playCurrentSong();
+    });
+    if (prevBtnApp) prevBtnApp.addEventListener('click', () => {
+      currentIndexApp = (currentIndexApp - 1 + songsApp.length) % songsApp.length;
+      loadSongApp(currentIndexApp);
+      playCurrentSong();
+    });
+
+    // playlist row click (ignore clicks inside heart)
+    playlistNodes.forEach((node, idx) => {
+      node.addEventListener('click', (e) => {
+        if (e.target.closest('.heart-box') || e.target.closest('.heart-toggle')) return;
+        // use data-id to find index (safer if playlist order changes)
+        const id = node.dataset.id;
+        const idxFromId = findSongIndexById(id);
+        const finalIdx = idxFromId !== -1 ? idxFromId : idx;
+        loadSongApp(finalIdx);
+        playCurrentSong();
+      });
+    });
+
+    // heart handling: stop propagation + toggle
+    // use delegation for robustness
+    document.addEventListener('click', (e) => {
+      const hit = e.target.closest('.heart-toggle');
+      if (!hit) return;
+      // stop playlist row click
+      e.stopPropagation();
+      // get owner id from nearest .song or .music-card
+      const songEl = hit.closest('.song');
+      const cardEl = hit.closest('.music-card');
+      const id = songEl?.dataset.id || cardEl?.dataset.id;
+      if (!id) return;
+      // toggle (toggleLike will call syncHeartUI)
+      toggleLike(id);
+    });
+
+    // audio ended -> next
+    audioApp.addEventListener('ended', () => {
+      currentIndexApp = (currentIndexApp + 1) % songsApp.length;
+      loadSongApp(currentIndexApp);
+      playCurrentSong();
+    });
+
+    // init
+    loadSongApp(currentIndexApp);
+    syncHeartUI();
+
+    // debug
+    window.__audioApp = { audio: audioApp, loadSong: loadSongApp, songs: songsApp };
+  }); // DOMContentLoaded
+
+})(); 
+</script>
+
+</body>
+</html>
