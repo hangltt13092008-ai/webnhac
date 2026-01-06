@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Web CÁ NHÂN - Fixed</title>
+<link rel="stylesheet" href="./WEB COLORS/PERSONAL COLOR.css">
+<link rel="stylesheet" href="./CSS/WEB AI+VIET.css">
+</head>
+<body>
+<header>
+  <img src="./PICTURE/nốt nhạc-1.PNG" width="70"/>
+  <h1>NHẠC YÊU THÍCH</h1>
+  <div class="menu-toggle" id="toggleBtn" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+  </div>
+  <div class="sidebar" id="sideMenu">
+      <a href="ABOUT US.html"><img src="./PICTURE/nốt nhạc-1.png" width="28px"> giới thiệu</a>
+      <a href="HOME.html"><img src="./PICTURE/ngôi nhà.png" width="35px"> Trang chủ</a>
+      <a href="WEBAI.html"><img src="./PICTURE/nốt nhạc-2.png" width="50px"> nhạc AI</a>
+      <a href="WEBVIET.html"><img src="./PICTURE/nốt nhạc-2.png" width="50px"> nhạc Việt</a>
+  </div>
+</header>
+
+<table align="center" cellpadding="20">
+<tr>
+  <td style="width:58%" ><h2>NHẠC ĐANG PHÁT</h2></td>
+  <td style="width:42%"><h2>DANH SÁCH</h2></td>
+</tr>
+<tr>
+  <td style="padding:25px;" valign="top">
+    <section class="player" aria-label="Now playing">
+      <div class="player-top">
+        <div class="cover">
+          <img id="player-cover" src="./PICTURE/đĩa nhạc dễ thương-3.PNG"/><!cái cover>
+        </div>
+        <div class="nowplaying">
+          <h3 id="player-title">------</h3>
+          <h4 id="player-artist">---</h4>
+          <input type="range" id="progress" value="0" min="0" max="100" aria-label="Progress">
+          <div class="controls">
+            <button class="btn" id="player-prev" aria-label="Prev">⏮</button>
+            <button class="btn" id="player-play" aria-label="Play">▶</button>
+            <button class="btn" id="player-next" aria-label="Next">⏭</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </td>
+
+  <td valign="top">
+    <div class="playlist-container">
+      <!-- NOTE: input vẫn nằm trước label, nhưng labels HAVE NO "for" attribute.
+           Inputs are disabled so browser won't toggle them - JS controls checked state. -->
+
+      <div id="empty-note" class="empty-note" style="display:none;">
+      Chưa có bài nào được thích — bấm tim trên các trang khác để lưu bài vào đây. (Bỏ tim vẫn giữ hiển thị trên trang này cho tới khi reload.)
+    </div>
+      <!---NHẠC AI--->
+      <!-- SONG 1 -->
+      <div class="song" data-id="ss1">
+        <div class="index">1</div>
+        <div class="info">
+          <span class="title">Nắng mai thời niên thiếu</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave"><span></span><span></span><span></span></div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" disabled>
+          <label class="heart-label" aria-hidden="true">
+            <svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2 1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/></svg>
+          </label>
+        </div>
+      </div>
+
+      <!-- SONG 2 -->
+      <div class="song" data-id="ss2">
+        <div class="index">2</div>
+        <div class="info">
+          <span class="title">Bước tiến kiên cường</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave"><span></span><span></span><span></span></div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" disabled>
+          <label class="heart-label" aria-hidden="true">
+            <svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2 1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/></svg>
+          </label>
+        </div>
+      </div>
+
+      <!-- SONG 3 -->
+      <div class="song" data-id="ss3">
+        <div class="index">3</div>
+        <div class="info">
+          <span class="title">Đời là muôn màu</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave"><span></span><span></span><span></span></div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" disabled>
+          <label class="heart-label" aria-hidden="true">
+            <svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2 1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/></svg>
+          </label>
+        </div>
+      </div>
+
+      <!-- SONG 4 -->
+      <div class="song" data-id="ss4">
+        <div class="index">4</div>
+        <div class="info">
+          <span class="title">bài ca sin cos</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave"><span></span><span></span><span></span></div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" disabled>
+          <label class="heart-label" aria-hidden="true">
+            <svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2 1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/></svg>
+          </label>
+        </div>
+      </div>
+
+      <!-- SONG 5 -->
+      <div class="song" data-id="ss5">
+        <div class="index">5</div>
+        <div class="info">
+          <span class="title">bài ca trái đất</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave"><span></span><span></span><span></span></div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" disabled>
+          <label class="heart-label" aria-hidden="true">
+            <svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2 1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/></svg>
+          </label>
+        </div>
+      </div>
+
+      <!-- SONG 6 -->
+      <div class="song" data-id="ss6">
+        <div class="index">6</div>
+        <div class="info">
+          <span class="title">khuyết danh</span>
+          <span class="artist">AI</span>
+        </div>
+        <div class="wave"><span></span><span></span><span></span></div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" disabled>
+          <label class="heart-label" aria-hidden="true">
+            <svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2 1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/></svg>
+          </label>
+        </div>
+      </div>
+	<!---NHẠC VIỆT--->
+      <!-- SONG 1 -->
+      <div class="song active" data-id="ss7">
+        <div class="index">1</div>
+        <div class="info">
+          <span class="title">để tôi ôm em bằng giai điệu này </span>
+          <span class="artist">KAI ĐINH x MIN x GREY D</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart1">
+          <label for="heart1" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+      <!-- SONG 2 -->
+      <div class="song active" data-id="ss8">
+        <div class="index">2</div>
+        <div class="info">
+          <span class="title">Vườn Hoa Con Cá </span>
+          <span class="artist">O.lew x Ngắn</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart2">
+          <label for="heart2" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+      <!-- SONG 3 -->
+      <div class="song active" data-id="ss9">
+        <div class="index">3</div>
+        <div class="info">
+          <span class="title">Wn</span>
+          <span class="artist">072019  3107 ft 267</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart3">
+          <label for="heart3" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	<!-- SONG 4 -->
+      <div class="song active" data-id="ss10">
+        <div class="index">4</div>
+        <div class="info">
+          <span class="title">SỚM MUỘN THÌ</span>
+<span class="artist">ANH TRAI "SAY HI"</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart4">
+          <label for="heart4" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	<!-- SONG 5 -->
+      <div class="song active" data-id="ss11">
+        <div class="index">5</div>
+        <div class="info">
+          <span class="title">không Thời Gian</span>
+<span class="artist">Dương Domic</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart5">
+          <label for="heart5" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	 <!-- SONG 6 -->
+      <div class="song active" data-id="ss12">
+        <div class="index">6</div>
+        <div class="info">
+          <span class="title">Kho Báu</span>
+<span class="artist">(S)TRONG</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart6">
+          <label for="heart6" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	 <!-- SONG 7 -->
+      <div class="song active" data-id="ss13">
+        <div class="index">7</div>
+        <div class="info">
+          <span class="title">Người Đầu tiên</span>
+<span class="artist">EM XINH "SAY HI" - Juky San</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart7">
+          <label for="heart7" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+	    <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	 <!-- SONG 8 -->
+      <div class="song active" data-id="ss14">
+        <div class="index">8</div>
+        <div class="info">
+          <span class="title">Bình Yên</span>
+<span class="artist">Vũ., Binz</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart8">
+          <label for="heart8" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	 <!-- SONG 9 -->
+      <div class="song active" data-id="ss15">
+        <div class="index">9</div>
+        <div class="info">
+          <span class="title">Ngàn Năm Ánh Sáng</span>
+<span class="artist">Đặng Vĩnh Thịnh, BMZ</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart9">
+          <label for="heart9" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+	<!-- SONG 10 -->
+      <div class="song active" data-id="ss16">
+        <div class="index">10</div>
+        <div class="info">
+          <span class="title">Một _Thế Giới_ = Hai Gang Tay</span>
+<span class="artist">Chị Đẹp Đạp Gió Rẽ Sóng</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart10">
+          <label for="heart10" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+         <!-- SONG 11 -->
+      <div class="song active" data-id="ss17">
+        <div class="index">11</div>
+        <div class="info">
+          <span class="title">Hồng Chiêu Nguyện</span>
+<span class="artist">Âm Khuyết Thi Thính</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart11">
+          <label for="heart11" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+        <!-- SONG 12 -->
+      <div class="song active" data-id="ss18">
+        <div class="index">12</div>
+        <div class="info">
+          <span class="title">Ảo Ảnh</span>
+<span class="artist">Tam Thúc Nói</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart12">
+          <label for="heart12" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+        <!-- SONG 13 -->
+      <div class="song active" data-id="ss19">
+        <div class="index">13</div>
+        <div class="info">
+          <span class="title">Anh Đã Không Biết Cách Yêu Em</span>
+<span class="artist">----</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart13">
+          <label for="heart13" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+        <!-- SONG 14 -->
+      <div class="song active" data-id="ss20">
+        <div class="index">14</div>
+        <div class="info">
+          <span class="title">Cause I Love You</span>
+<span class="artist">Noo Phước Thịnh</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart14">
+          <label for="heart14" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+        <!-- SONG 15 -->
+      <div class="song active" data-id="ss21">
+        <div class="index">15</div>
+        <div class="info">
+          <span class="title">Pin Dự Phòng</span>
+<span class="artist">---</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart15">
+          <label for="heart15" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+        <!-- SONG 16 -->
+      <div class="song active" data-id="ss22">
+        <div class="index">16</div>
+        <div class="info">
+          <span class="title">Khó Sinh Hận</span>
+<span class="artist">礼越  秋成 (DJ抖音版)</span>
+        </div>
+        <div class="wave">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="heart-box">
+          <input type="checkbox" class="heart-toggle" id="heart16">
+          <label for="heart16" onclick="event.stopPropagation()">
+            <svg class="heart" viewBox="0 0 24 24">
+              <path d="M12 21s-6-4.35-9-8.7C-1.5 6.75 3 2.1 7.8 4.35c1.68.78 2.7 2.22 4.2 4.2
+                       1.5-1.98 2.52-3.42 4.2-4.2C21 2.1 25.5 6.75 21 12.3 18 16.65 12 21 12 21z"/>
+            </svg>
+          </label>
+        </div>
+      </div>
+    </div> <!-- playlist-container -->
+  </td>
+</tr>
+</table>
+
+<script>
+(() => {
+  // Toggle sidebar (kept unchanged)
+  function toggleMenu(){
+    const side = document.getElementById("sideMenu");
+    const btn  = document.getElementById("toggleBtn");
+    if(!side || !btn) return;
+    side.classList.toggle("open");
+    btn.classList.toggle("move");
+    btn.classList.toggle("active");
+  }
+  window.toggleMenu = toggleMenu;
+})();
+</script>
+
+<!-- MAIN LOGIC -->
+<script>
+(() => {
+  /* ======================
+     Storage helpers
+     ====================== */
+  function readLiked() {
+    try { return JSON.parse(localStorage.getItem('likedSongs') || '[]'); }
+    catch (e) { return []; }
+  }
+  function writeLiked(arr) {
+    localStorage.setItem('likedSongs', JSON.stringify(Array.from(new Set(arr))));
+  }
+  function toggleLikeById(id) {
+    if (!id) return;
+    const cur = readLiked();
+    if (cur.includes(id)) {
+      const next = cur.filter(x => x !== id);
+      writeLiked(next);
+      return next;
+    } else {
+      cur.push(id);
+      writeLiked(cur);
+      return cur;
+    }
+  }
+  function isLiked(id) { return readLiked().includes(id); }
+
+  /* ======================
+     Playlist data (IDs must match DOM data-id)
+     ====================== */
+  const songsApp = [
+    { id: 'ss1',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './songs/song_01.mp3', title: 'Nắng mai thời niên thiếu', artist: 'AI' },
+    { id: 'ss2',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './songs/song_02.mp3', title: 'Bước tiến kiên cường', artist: 'AI' },
+    { id: 'ss3',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './songs/song_03.mp3', title: 'Đời là muôn màu', artist: 'AI' },
+    { id: 'ss4',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './songs/bài ca sin cos.mp3', title: 'bài ca sin cos', artist: 'AI' },
+    { id: 'ss5',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './songs/bài ca trái đất.mp3', title: 'bài ca trái đất', artist: 'AI' },
+    { id: 'ss6',cover:"./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './songs/song_04.mp3', title: 'khuyết danh', artist: 'AI' },
+    { id: 'ss7',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/để tôi ôm em bằng giai điệu này - KAI ĐINH x MIN x GREY D  Official Music Video.mp3',  title: 'để tôi ôm em bằng giai điệu này', artist: 'KAI ĐINH x MIN x GREY D'},
+    { id: 'ss8',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Vườn Hoa Con Cá - O.lew x Ngắn [Lyrics Video] Mưa.mp3',  title: 'Vườn Hoa Con Cá', artist: 'O.lew x Ngắn'},
+    { id: 'ss9',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Wn - id 072019  3107 ft 267.mp3',  title: 'Wn', artist: '072019  3107 ft 267'},
+    { id: 'ss10',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/SỚM MUỘN THÌ.mp3',  title: 'SỚM MUỘN THÌ', artist: "ANH TRAI 'SAY HI'"},
+    { id: 'ss11',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Không Thời Gian.mp3',  title: 'Không Thời Gian', artist: 'Dương Domic'},
+    { id: 'ss12',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Kho Báu.mp3',  title: 'Kho Báu', artist: '(S)TRONG'},
+    { id: 'ss13',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Người Đầu Tiên.mp3',  title: 'Người Đầu Tiên', artist: "EM XINH 'SAY HI' - Juky San"},
+    { id: 'ss14',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Bình Yên.mp3',  title: 'Bình Yên', artist: 'Vũ, Binz'},
+    { id: 'ss15',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Ngàn Năm Ánh Sáng.mp3',  title: 'Ngàn Năm Ánh Sáng', artist: 'Đặng Vĩnh Thịnh, BMZ'},
+    { id: 'ss16',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Một _Thế Giới_ = Hai Gang Tay.mp3',  title: 'Một _Thế Giới_ = Hai Gang Tay', artist: 'Chị Đẹp Đạp Gió Rẽ Sóng'},
+    { id: 'ss17',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/[Vietsub] Hồng Chiêu Nguyện (Bản DJ 0.85x) - Âm Khuyết Thi Thính  红昭愿 - 音阙诗听.mp3',  title: 'Hồng Chiêu Nguyện', artist: 'Âm Khuyết Thi Thính'},
+    { id: 'ss18',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/[Pinyin  Vietsub] Ảo Ảnh (Bản Hợp Xướng)海市蜃樓 (合唱版)- Tam Thúc Nói  Hot Tiktok.mp3',  title: 'Ảo Ảnh', artist: 'Tam Thúc Nói'},
+    { id: 'ss19',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Anh Đã Không Biết Cách Yêu Em.mp3',  title: 'Anh Đã Không Biết Cách Yêu Em', artist: 'Quang Dang Tran'},
+    { id: 'ss20',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Cause I Love You - Noo Phước Thịnh [Official Music Video].mp3',  title: 'Cause I Love You', artist: 'Noo Phước Thịnh'},
+    { id: 'ss21',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/Pin Dự Phòng.mp3',  title: 'Pin Dự Phòng', artist: 'Dương Domic'},
+   { id: 'ss22',cover: "./PICTURE/đĩa nhạc dễ thương-3.PNG", src: './vietsong/难生恨 Khó Sinh Hận Remix - 礼越  秋成 (DJ抖音版)  Hot Trend Tiktok & Douyin.mp3',  title: 'Khó Sinh Hận', artist: '礼越  秋成 (DJ抖音版)'},
+  ];
+  function findIndexById(id) { return songsApp.findIndex(s => s.id === id); }
+  function getSongById(id) { return songsApp.find(s => s.id === id) || null; }
+
+  /* ======================
+     DOM refs
+     ====================== */
+  const playlistContainer = document.querySelector('.playlist-container');
+  const allRows = () => Array.from(document.querySelectorAll('.playlist-container .song'));
+  const progress = document.getElementById('progress');
+  const playerCover = document.getElementById('player-cover');
+  const playerTitle = document.querySelector('.player h3');
+  const playerArtist = document.querySelector('.player h4');
+  const btnPrev = document.querySelector('.controls .btn:nth-child(1)');
+  const btnPlay = document.querySelector('.controls .btn:nth-child(2)');
+  const btnNext = document.querySelector('.controls .btn:nth-child(3)');
+  const emptyNote = (() => {
+    // create an "empty" note element if not present
+    let n = document.getElementById('empty-note');
+    if (!n) {
+      n = document.createElement('div');
+      n.id = 'empty-note';
+      n.style.padding = '12px';
+      n.style.color = '#777';
+      n.textContent = 'Không có bài yêu thích nào.';
+      // append below playlist
+      if (playlistContainer) playlistContainer.insertAdjacentElement('afterend', n);
+    }
+    return n;
+  })();
+
+  /* ======================
+     Audio element + state
+     ====================== */
+  const audio = document.createElement('audio');
+  audio.preload = 'metadata';
+  let currentSongId = null;
+  let isPlaying = false;
+
+  /* ======================
+     Visual helpers
+     ====================== */
+  function setProgressVisual(v) {
+    if (!progress) return;
+    const pct = Math.max(0, Math.min(100, v));
+    progress.value = pct;
+    progress.style.background = `linear-gradient(to right,var(--progress-empty) 0%,var(--progress-empty) ${pct}%,var(--progress-fill) ${pct}%,var(--progress-fill) 100%)`;
+  }
+  setProgressVisual(0);
+
+  function allSongRowsVisible() {
+    return allRows().filter(r => r.style.display !== 'none');
+  }
+
+  function enableControlsIfHasVisible() {
+    const has = allSongRowsVisible().length > 0;
+    [btnPrev, btnPlay, btnNext].forEach(b => { if (b) b.disabled = !has; });
+    emptyNote.style.display = has ? 'none' : '';
+  }
+
+  /* ======================
+     Index update: only count visible rows
+     ====================== */
+  function updatePlaylistIndex() {
+    let idx = 1;
+    allRows().forEach(row => {
+      if (row.style.display === 'none') return;
+      const indexEl = row.querySelector('.index');
+      if (indexEl) indexEl.textContent = idx++;
+    });
+  }
+
+  /* ======================
+     Heart sync: update checkbox visuals on page (cards & rows)
+     ====================== */
+  function syncHeartUI() {
+    const liked = readLiked();
+    // playlist rows
+    allRows().forEach(row => {
+      const id = row.dataset.id;
+      const input = row.querySelector('.heart-toggle');
+      if (input) input.checked = liked.includes(id);
+      // also mark label class for click delegations if you used .heart-label
+      const label = row.querySelector('label[for]');
+      if (label) {
+        label.classList.toggle('heart-label', true);
+      }
+    });
+    // cards (if present on same page)
+    document.querySelectorAll('.music-card').forEach(card => {
+      const id = card.dataset.id;
+      const input = card.querySelector('.heart-toggle');
+      if (input) input.checked = liked.includes(id);
+    });
+  }
+
+  /* ======================
+     Active (playing) sync by id -> highlight playlist row + card
+     ====================== */
+  function syncActiveBySongId(id) {
+  // highlight bài đang phát
+  allRows().forEach(row => {
+    const isActive = row.dataset.id === id;
+    row.classList.toggle('active', isActive);
+
+    const wave = row.querySelector('.wave');
+    if (wave) wave.style.display = isActive ? 'flex' : 'none';
+  });
+
+  const s = getSongById(id);
+  if (!s) return;
+
+  // cập nhật chữ
+  if (playerTitle) {
+    playerTitle.textContent = s.title || '------';
+  }
+
+  if (playerArtist) {
+    playerArtist.textContent = '- ' + (s.artist || '---') + ' -';
+  }
+
+  // ⭐ QUAN TRỌNG: cập nhật ảnh cover
+  if (playerCover) {
+    playerCover.src = s.cover || './PICTURE/dia-nhac-3.png';
+  }
+}
+
+
+  /* ======================
+     Load song by id (no autoplay unless flag)
+     ====================== */
+  function loadSongById(id, autoplay = false) {
+    const idx = findIndexById(id);
+    if (idx === -1) return false;
+    const s = songsApp[idx];
+    currentSongId = s.id;
+    audio.src = s.src || '';
+    try { audio.load(); } catch(e) {}
+    syncActiveBySongId(currentSongId);
+    setProgressVisual(0);
+    if (autoplay) {
+      audio.currentTime = 0;
+      audio.play().catch(e => console.warn('play blocked', e));
+    }
+    return true;
+  }
+
+  /* ======================
+     Visible-id helpers
+     ====================== */
+  function getVisibleIds() { return allSongRowsVisible().map(r => r.dataset.id); }
+  function findVisibleIndexOf(id) { return getVisibleIds().indexOf(id); }
+
+  /* ======================
+     Prev/Next on visible list (wrap)
+     ====================== */
+  function goNextVisible() {
+    const ids = getVisibleIds();
+    if (ids.length === 0) return;
+    if (!currentSongId) { loadSongById(ids[0], true); return; }
+    const i = ids.indexOf(currentSongId);
+    const next = (i === -1) ? 0 : (i + 1) % ids.length;
+    loadSongById(ids[next], true);
+  }
+  function goPrevVisible() {
+    const ids = getVisibleIds();
+    if (ids.length === 0) return;
+    if (!currentSongId) { loadSongById(ids[0], true); return; }
+    const i = ids.indexOf(currentSongId);
+    const prev = (i === -1) ? 0 : (i - 1 + ids.length) % ids.length;
+    loadSongById(ids[prev], true);
+  }
+
+  /* ======================
+     Audio events
+     ====================== */
+  audio.addEventListener('play', () => { isPlaying = true; if (btnPlay) btnPlay.textContent = '⏸'; if (currentSongId) syncActiveBySongId(currentSongId); });
+  audio.addEventListener('pause', () => { isPlaying = false; if (btnPlay) btnPlay.textContent = '▶'; });
+  audio.addEventListener('timeupdate', () => {
+    if (!audio.duration || isNaN(audio.duration)) { setProgressVisual(0); return; }
+    const pct = (audio.currentTime / audio.duration) * 100;
+    setProgressVisual(pct);
+  });
+  audio.addEventListener('ended', () => { goNextVisible(); });
+
+  /* ======================
+     Progress input
+     ====================== */
+  if (progress) {
+    progress.addEventListener('input', () => {
+      if (audio.duration) audio.currentTime = (progress.value / 100) * audio.duration;
+      setProgressVisual(progress.value);
+    });
+  }
+
+  /* ======================
+     DOM ready initialization
+     ====================== */
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1) hide rows not liked (personal page behavior)
+    const liked = readLiked();
+    let visibleCount = 0;
+    allRows().forEach(row => {
+      const id = row.dataset.id;
+      if (!id) { row.style.display = 'none'; return; }
+      if (!liked.includes(id)) { row.style.display = 'none'; }
+      else { row.style.display = ''; visibleCount++; }
+    });
+
+    // 2) sync hearts visuals
+    syncHeartUI();
+
+    // 3) update index according to visible rows
+    updatePlaylistIndex();
+
+    // 4) enable/disable controls
+    enableControlsIfHasVisible();
+
+    // 5) load first visible song (no autoplay)
+    const ids = getVisibleIds();
+    if (ids.length > 0) { currentSongId = ids[0]; loadSongById(currentSongId, false); }
+    else { currentSongId = null; syncActiveBySongId(null); setProgressVisual(0); }
+
+    // 6) clicking on visible row -> play (ignore heart clicks)
+    allSongRowsVisible().forEach(row => {
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('.heart-box') || e.target.closest('.heart-toggle') || e.target.closest('label')) return;
+        const id = row.dataset.id;
+        if (!id) return;
+        loadSongById(id, true);
+      });
+    });
+
+    // 7) heart clicks: delegate on playlist container (label/click)
+    //    -> toggle storage, update UI. Per request: unliking DOES NOT remove row until reload.
+    playlistContainer.addEventListener('click', (e) => {
+      const hitToggle = e.target.closest('.heart-toggle');
+      const hitLabel = e.target.closest('label[for]') || e.target.closest('.heart-label');
+      const hit = hitToggle || hitLabel;
+      if (!hit) return;
+      e.stopPropagation();
+      // find the owner (song row or card)
+      const row = hit.closest('.song') || hit.closest('.music-card');
+      if (!row) return;
+      const id = row.dataset.id;
+      if (!id) return;
+      toggleLikeById(id);         // write to localStorage
+      syncHeartUI();             // update checkboxes visuals immediately
+      // Do NOT hide the row now (per your request); re-hide happens on next page load.
+      updatePlaylistIndex();     // update index (still counts visible rows)
+      enableControlsIfHasVisible();
+    });
+
+    // 8) card hearts (if cards exist) - preserve behavior and stop propagation
+    document.querySelectorAll('.music-card .heart-toggle, .music-card label[for]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = el.closest('.music-card');
+        if (!card) return;
+        const id = card.dataset.id;
+        if (!id) return;
+        toggleLikeById(id);
+        syncHeartUI();
+        enableControlsIfHasVisible();
+        updatePlaylistIndex();
+      });
+    });
+
+    // 9) wire prev/play/next (operate on visible list)
+    if (btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); if (allSongRowsVisible().length) goPrevVisible(); });
+    if (btnNext) btnNext.addEventListener('click', (e) => { e.stopPropagation(); if (allSongRowsVisible().length) goNextVisible(); });
+    if (btnPlay) btnPlay.addEventListener('click', (e) => { e.stopPropagation(); if (!audio.src) return; if (isPlaying) audio.pause(); else audio.play().catch(ex => console.warn('play', ex)); });
+
+    // 10) set initial visual states
+    updatePlaylistIndex();
+    enableControlsIfHasVisible();
+    setProgressVisual(0);
+  });
+
+  /* ======================
+     Keep hearts synced across tabs/windows immediately
+     ====================== */
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'likedSongs') {
+      // update UI: checkboxes, controls, index if needed
+      syncHeartUI();
+      // On other pages (not personal), you probably want to reflect heart state only
+      // On personal page we choose to leave rows visible until reload; just update checkboxes
+      // But update index in case some rows were hidden earlier
+      updatePlaylistIndex();
+      enableControlsIfHasVisible();
+    }
+  });
+
+})(); // end IIFE
+</script>
+</body>
+</html>
